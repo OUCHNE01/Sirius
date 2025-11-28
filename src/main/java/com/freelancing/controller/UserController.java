@@ -27,9 +27,10 @@ import com.razorpay.RazorpayException;
 
 import io.swagger.v3.oas.annotations.Operation;
 
+
 @RestController
 @RequestMapping("api/user")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://172.31.249.124:3000")
 public class UserController {
 
 	@Autowired
