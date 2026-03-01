@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 import org.springframework.beans.BeanUtils;
 
-import com.freelancing.entity.Address;
 import com.freelancing.entity.User;
 
 import lombok.Data;
@@ -26,7 +25,7 @@ public class UserDto {
 
 	private String role;
 
-	private Address address;
+	private String address;
 
 	private String status;
 	

@@ -35,9 +35,7 @@ public class User {
 
 	private String role;
 
-	@OneToOne
-	@JoinColumn(name = "address_id")
-	private Address address;
+	private  String address;
 
 	private BigDecimal walletAmount;
 

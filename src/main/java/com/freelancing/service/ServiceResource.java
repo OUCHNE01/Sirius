@@ -116,9 +116,7 @@ public class ServiceResource {
 		String image3 = storageService.store(request.getImage3());
 
 		Service service = AddServiceRequest.toServiceEntity(request);
-		service.setImage1(image1);
-		service.setImage2(image2);
-		service.setImage3(image3);
+
 
 		service.setSubCategory(subCategory);
 

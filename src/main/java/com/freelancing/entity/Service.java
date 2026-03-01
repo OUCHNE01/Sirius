@@ -37,12 +37,6 @@ public class Service {
 
 	private Integer deliveryTime; // in days
 
-	private String image1;
-
-	private String image2;
-
-	private String image3;
-
 	private String status;
 
 }

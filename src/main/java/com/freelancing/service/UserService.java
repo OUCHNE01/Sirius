@@ -22,7 +22,6 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.freelancing.dao.AddressDao;
 import com.freelancing.dao.PgTransactionDao;
 import com.freelancing.dao.ServiceDao;
 import com.freelancing.dao.UserDao;
@@ -34,7 +33,6 @@ import com.freelancing.dto.UserLoginResponse;
 import com.freelancing.dto.UserResponseDto;
 import com.freelancing.dto.UserStatusUpdateRequestDto;
 import com.freelancing.dto.UserWalletUpdateResponse;
-import com.freelancing.entity.Address;
 import com.freelancing.entity.PgTransaction;
 import com.freelancing.entity.Service;
 import com.freelancing.entity.User;
@@ -63,9 +61,6 @@ public class UserService {
 
 	@Autowired
 	private UserDao userDao;
-
-	@Autowired
-	private AddressDao addressDao;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -181,18 +176,7 @@ public class UserService {
 		user.setPassword(encodedPassword);
 		user.setWalletAmount(BigDecimal.ZERO);
 
-		Address address = new Address();
-		address.setCity(request.getCity());
-		address.setPincode(request.getPincode());
-		address.setStreet(request.getStreet());
 
-		Address savedAddress = this.addressDao.save(address);
-
-		if (savedAddress == null) {
-			throw new UserSaveFailedException("Registration Failed because of Technical issue:(");
-		}
-
-		user.setAddress(savedAddress);
 		existingUser = this.userDao.save(user);
 
 		if (existingUser == null) {
